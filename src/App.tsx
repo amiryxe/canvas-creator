@@ -4,7 +4,7 @@ import './assets/styles/main.scss'
 
 export default function App() {
   const [content, setContent] = useState('')
-  const contentRef = useRef<HTMLElement>()
+  const contentRef = useRef<HTMLInputElement>(null)
 
   const submitHandler = (e: any) => {
     e.preventDefault()
