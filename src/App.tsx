@@ -1,8 +1,12 @@
 import { useRef, useState } from 'react'
 import html2canvas from 'html2canvas'
+import ReactQuill from 'react-quill'
+
 import './assets/styles/main.scss'
+import 'react-quill/dist/quill.snow.css'
 
 export default function App() {
+  const [value, setValue] = useState('')
   const [content, setContent] = useState('')
   const contentRef = useRef<HTMLInputElement>(null)
 
@@ -25,7 +29,9 @@ export default function App() {
   return (
     <>
       <form onSubmit={submitHandler}>
-        <textarea rows={10} cols={50} name='content' />
+        {/* <textarea rows={10} cols={50} name='content' /> */}
+
+        <ReactQuill theme="snow" value={value} onChange={setValue} style={{ direction: 'ltr' }} />
 
         <button type='submit'>
           create
@@ -33,7 +39,8 @@ export default function App() {
       </form>
 
       <div ref={contentRef} className='content box1'>
-        {content}
+        {/* {value} */}
+        <div dangerouslySetInnerHTML={{ __html: value }} />
       </div>
 
       <button onClick={buildHandler}>Build image</button>

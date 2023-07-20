@@ -57,9 +57,11 @@ body {
 .content {
   background: #333;
   color: #fff;
-  padding: 2rem;
+  padding: 5rem;
   font-size: 2rem;
   margin: 1rem;
+  text-align: justify;
+  box-sizing: border-box;
 }
 
 .box1 {
