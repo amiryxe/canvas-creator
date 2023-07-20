@@ -25,14 +25,14 @@ export default function App() {
   return (
     <>
       <form onSubmit={submitHandler}>
-        <input name='content' />
+        <textarea rows={10} cols={50} name='content' />
 
         <button type='submit'>
           create
         </button>
       </form>
 
-      <div ref={contentRef} className='content'>
+      <div ref={contentRef} className='content box1'>
         {content}
       </div>
 
