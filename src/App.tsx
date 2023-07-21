@@ -7,14 +7,7 @@ import 'react-quill/dist/quill.snow.css'
 
 export default function App() {
   const [value, setValue] = useState('')
-  const [content, setContent] = useState('')
   const contentRef = useRef<HTMLInputElement>(null)
-
-  const submitHandler = (e: any) => {
-    e.preventDefault()
-
-    setContent(e.target.content.value)
-  }
 
   const buildHandler = () => {
     console.log(contentRef.current)
@@ -28,18 +21,9 @@ export default function App() {
 
   return (
     <>
-      <form onSubmit={submitHandler}>
-        {/* <textarea rows={10} cols={50} name='content' /> */}
-
-        <ReactQuill theme="snow" value={value} onChange={setValue} style={{ direction: 'ltr' }} />
-
-        <button type='submit'>
-          create
-        </button>
-      </form>
+      <ReactQuill theme="snow" value={value} onChange={setValue} style={{ direction: 'ltr' }} />
 
       <div ref={contentRef} className='content box1'>
-        {/* {value} */}
         <div dangerouslySetInnerHTML={{ __html: value }} />
       </div>
 
