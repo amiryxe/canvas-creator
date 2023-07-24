@@ -40,7 +40,7 @@ export default function RichTextEditor({ value, onChange }: any) {
         <ReactQuill
             theme="snow"
             modules={modules}
-            style={{ height: 150 }}
+            style={{ height: 150, marginBottom: 100, direction: 'ltr' }}
             formats={formats}
             value={value}
             onChange={onChange}

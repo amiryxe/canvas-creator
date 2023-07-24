@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import html2canvas from 'html2canvas'
+import parse from 'html-react-parser'
 
 import './assets/styles/main.scss'
 import RichTextEditor from './components/elements/RichTextEditor'
@@ -22,7 +23,9 @@ export default function App() {
     <>
       <RichTextEditor value={value} onChange={setValue} />
 
-      <div ref={contentRef} className='content box1' dangerouslySetInnerHTML={{ __html: value }}>
+      <div ref={contentRef} className='content box1'>
+        {parse(value)}
+        {/* parse html in value */}
 
       </div>
 
