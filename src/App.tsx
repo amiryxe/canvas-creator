@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react'
 import html2canvas from 'html2canvas'
-import ReactQuill from 'react-quill'
 
 import './assets/styles/main.scss'
-import 'react-quill/dist/quill.snow.css'
+import RichTextEditor from './components/elements/RichTextEditor'
 
 export default function App() {
   const [value, setValue] = useState('')
@@ -21,10 +20,10 @@ export default function App() {
 
   return (
     <>
-      <ReactQuill theme="snow" value={value} onChange={setValue} style={{ direction: 'ltr' }} />
+      <RichTextEditor value={value} onChange={setValue} />
 
-      <div ref={contentRef} className='content box1'>
-        <div dangerouslySetInnerHTML={{ __html: value }} />
+      <div ref={contentRef} className='content box1' dangerouslySetInnerHTML={{ __html: value }}>
+
       </div>
 
       <button onClick={buildHandler}>Build image</button>
