@@ -23,11 +23,12 @@ export default function App() {
     <>
       <RichTextEditor value={value} onChange={setValue} />
 
-      <div ref={contentRef} className='content box1'>
-        {parse(value)}
-        {/* parse html in value */}
-
-      </div>
+      {
+        value &&
+        <div ref={contentRef} className='content box1' >
+          {parse(value)}
+        </div>
+      }
 
       <button onClick={buildHandler}>Build image</button>
     </>
